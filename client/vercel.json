@@ -2,14 +2,14 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "https://your-backend.onrender.com/api/$1"
+      "source": "/api/:path*",
+      "destination": "https://your-backend.onrender.com/api/:path*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!assets|favicon|icons|hero_photo|AM_Resume).*)",
+      "destination": "/index.html"
     }
   ]
 }
