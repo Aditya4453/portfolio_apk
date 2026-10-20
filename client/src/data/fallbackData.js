@@ -146,16 +146,7 @@ export const fallbackPortfolioData = {
         'Explored computer-vision approaches to cricket biomechanics analytics, including data annotation, offline kinematic trials, pose-estimation workflows, and analysis of model accuracy.',
       tags: ['Computer Vision', 'YOLO Pose', 'Data Annotation', 'Model Evaluation'],
     },
-    {
-      type: 'leadership',
-      year: '2026 — Present',
-      title: 'Co-Chair — Technology Club',
-      institution: 'JK Lakshmipat University',
-      location: 'Jaipur, India',
-      description:
-        'Contributing to the student technology community through coordination, collaboration, and initiatives that bring students closer to technology and practical software building.',
-      tags: ['Leadership', 'Event Planning', 'Tech Workshops'],
-    },
+    
   ],
 
   achievements: [
@@ -188,26 +179,6 @@ export const fallbackPortfolioData = {
         'Earned Google skill badge for designing effective prompts and working with foundation models in Vertex AI to build and deploy generative AI solutions.',
       certificateUrl: 'https://www.credly.com/badges/199f3b34-fc48-4dc4-b9c4-d2ab11b66a91/linked_in_profile',
       badge: 'Skill Badge',
-    },
-    {
-      year: '2025',
-      title: 'HackJKLU Core Organizing Contributor',
-      organization: 'JK Lakshmipat University',
-      category: 'Hackathon Leadership',
-      description:
-        'Key contributor to organizing, technical creative outreach, and execution for 500+ hackathon participants across institutions.',
-      certificateUrl: 'https://hackjklu.com',
-      badge: 'Leadership',
-    },
-    {
-      year: '2025',
-      title: 'Winter of Code 5.0 — Selected Contributor',
-      organization: 'Winter of Code / Open Source Community',
-      category: 'Open Source',
-      description:
-        'Selected to participate in a premier open-source contribution program; collaborated on issues and merged pull requests to enhance real-world repositories.',
-      certificateUrl: 'https://winterofcode.com',
-      badge: 'Verified Program',
     },
     {
       year: '2024',
