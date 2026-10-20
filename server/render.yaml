@@ -4,13 +4,12 @@ services:
     runtime: node
     region: singapore
     plan: free
-    rootDir: server
-    buildCommand: npm install
-    startCommand: node server.js
+    # Root is the repo root so we can build the frontend first
+    rootDir: .
+    buildCommand: "cd client && npm install && npm run build && cd ../server && npm install"
+    startCommand: "node server/server.js"
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
       - key: MONGO_URI
         sync: false   # set manually in Render dashboard

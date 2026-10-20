@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: aditya-portfolio-api
+    runtime: node
+    region: singapore
+    plan: free
+    # Root is the repo root — lets us build frontend then start backend
+    rootDir: .
+    buildCommand: "cd client && npm install && npm run build && cd ../server && npm install"
+    startCommand: "node server/server.js"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false   # set this in the Render dashboard, never commit the value
