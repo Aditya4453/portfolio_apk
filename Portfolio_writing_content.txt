@@ -1,0 +1,293 @@
+Aditya, your current portfolio template has the right foundation: a cinematic hero, animated project list, experience timeline, skill cards, achievements, résumé, and a strong contact section.
+
+But the content needs to tell your actual story — a B.Tech CSE student who builds web applications, explores AI/ML, contributes to hackathons and tech communities, and creates visual content through editing and design.
+
+I'm going to keep the template's dark, minimal, editorial style while positioning you as a developer with a creative edge. The copy below is tailored to your background, projects, leadership experience, and career goals, rather than the fictional designer profile currently in the HTML.
+
+# 1. Section-by-section portfolio copy
+
+## Section 01 — Hero
+
+EYEBROW / ROLE
+
+B.Tech CSE Student · Developer · Creative Technologist
+
+# ADITYA
+
+# MODANI.
+
+MAIN STATEMENT
+
+I build digital experiences where code meets creativity — from web applications and AI-powered experiments to cinematic visuals and interactive interfaces.
+
+Explore my work ↗
+
+Let's connect ↗
+
+Footer metadata: Selected work · Development / AI / Creative
+
+Why this works: it communicates your three strongest interests without making you sound like an established senior engineer or an exclusively visual designer.
+
+## Section 02 — Principles strip
+
+Replace the four existing design principles with these:
+
+### 01
+
+Understand before building
+
+### 02
+
+Make ideas tangible
+
+### 03
+
+Learn by shipping
+
+### 04
+
+Technology with purpose
+
+These reflect how you approach development, experimentation, design, and learning.
+
+## Section 03 — Selected work
+
+The existing template has four project rows. I recommend giving them to projects that demonstrate different abilities instead of displaying four similar websites.
+
+[Chin Wag - Eliminate Filler Words from Your Speech](https://images.openai.com/static-rsc-4/0saL8CM5pL4-xKQSShafzpPV56Z0H0JaSVYLGZfrsoOpb3gLZ8h11zsiYYD1B6MD0OiT04_EQlJpKprz2_3pyna8cpWKqFTxW-JVM2nDeW1RZKuCA39nFD0GIQJ6e9wWM6BegCg5WmWFpCmAPTnYkB44Pr2G2HxJmE6BH1JpfDc?purpose=inline)
+
+01\. SpeakFlow
+
+AI / FULL-STACK DEVELOPMENT
+
+A speech evaluation platform designed to help people practise speaking, review their performance, and improve through structured feedback.
+
+Stack: FastAPI, MongoDB, Azure Blob Storage, Vercel
+
+[Teacher Dashboard Design | Dashboard design, Web design, App design](https://images.openai.com/static-rsc-4/_7dQT3JREOVK-4pYG9kUgAGKz5Q5x_Mya5EfMsi73FiKTOZx-azClngPQHRn7TUJsAKUH0WVvxus-_DyalRzE2pWpo_gOPBYHi-lqAqXpkywhE7lUmZChBTFImVfF3o-nHTRBiLRTWtnV47JtnWn6bho87qDH3TR0KTdDDoV7F4?purpose=inline)
+
+02\. TeachNest
+
+WEB3 / HACKATHON PROJECT
+
+A peer-to-peer learning credit system exploring how blockchain can support the exchange of knowledge, skills, and learning contributions.
+
+Stack: Next.js, React, Tailwind CSS, Framer Motion, Monad Testnet
+
+[Training AI for Cricket Analytics: From Ball Tracking to Pose Estimation | Train Matricx | Train Matricx](https://images.openai.com/static-rsc-4/2Dvzp6xU7WxBTjS1eMyy0KojWfONV7iern4iCaQm9Kt8AAh6DZuzd1I1W_rxM671ptUEhXLT4a1NEnaAZRwAoonlqIO3G39fR0fQLm6Ua90l6jlozPjin0Gn3Em-944cV26hWFt8R0xZMCUkR9bVAZGgn1jtNckzDZOj4amu2T8?purpose=inline)
+
+03\. Cricket Motion Analysis
+
+COMPUTER VISION / ML
+
+An exploration of pose estimation and movement analysis for cricket, involving annotated data, offline trials, and the examination of model outputs.
+
+Technologies explored: YOLO Pose, ViTPose, OpenCap, WHAM
+
+[Dr. Ivaylo Nanev | Software Engineer, Classical Musician & AI Builder](https://images.openai.com/static-rsc-4/UDr7TukhObgyGoNq4_3qguWKq9eIA7l1xdd5Mf9778msCH62YxAKXidwOiDLDp_Kh7wKZkDbW-U4Bc2njOI_VLZgSALXGttXL7YCsgDYooRwrDX2Az6rMiIkzsOf7VAYh0yTCfEkft-G6Jb33G30wfXscwSy59u6VtVkUBjlvAs?purpose=inline)
+
+04\. Beyond the Frame
+
+FRONT-END / CREATIVE DEVELOPMENT
+
+A cinematic portfolio concept exploring how motion, visual storytelling, and interactive web design can turn a conventional portfolio into an experience.
+
+Technologies: React, Tailwind CSS, animation and interaction design
+
+These descriptions are drafted from your known project history. Use them as final portfolio entries only where they accurately reflect the state of each project; include working demos, screenshots, and GitHub links where available.
+
+Important: if your current HTML has room for more projects, your Weather App, PDF RAG system, and Parivahan Path prototype are also worth considering. I would keep the homepage to four or five strong projects and move smaller experiments to a separate archive.
+
+## Section 04 — Experience and milestones
+
+Your template currently contains fictional employment at design studios. Replace that timeline with real roles and activities. Do not present student leadership or participation as paid employment.
+
+### 2026 — Present
+
+Leadership
+
+Co-Chair — Technology Club
+
+JK Lakshmipat University
+
+Contributing to the student technology community through coordination, collaboration, and initiatives that bring students closer to technology and practical learning.
+
+### 2025–2026
+
+Social Media Core — HackJKLU
+
+Supporting the communication and promotion of the university's hackathon through event-related content, creative execution, and coordination.
+
+Adjust the dates to match your actual appointment.
+
+### Internship
+
+Machine Learning Intern — Bowler Academy / Tackit Analytics
+
+Explored computer-vision approaches to cricket analytics, including data annotation, offline trials, pose-estimation workflows, and analysis of model outputs.
+
+Use your official internship start and end dates.
+
+### Community contributions
+
+Hackathons, Open Source & Technical Events
+
+Participated in technical communities and events, including Winter of Code 5.0, Build with AI, WOC contributions, and hackathon activities. These experiences helped me work with teams, explore unfamiliar technologies, and learn through implementation.
+
+You can keep the centered timeline layout. Give each entry a date, role, organization, and two-line description. Include HackJKLU event-organizing responsibilities as a separate entry only if they were distinct from your core-team role.
+
+## Section 05 — About
+
+SECTION LABEL
+
+ABOUT ME
+
+# Curious by nature.
+
+# A builder by choice.
+
+I'm Aditya, a Computer Science student at JK Lakshmipat University, Jaipur. I enjoy understanding how technology works, turning ideas into functional products, and finding ways to make digital experiences feel as good as they work.
+
+My interests span web development, AI and machine learning, interface design, and visual storytelling. I like moving between these worlds — writing code, experimenting with tools, refining an interface, or editing a piece of content until it feels right.
+
+I'm still learning, still experimenting, and deliberately building the skills and projects that will shape the kind of engineer and creative professional I become.
+
+This section should feel personal without becoming a long autobiography. It tells visitors what interests you and how you work, while leaving detailed evidence to the projects and experience sections.
+
+## Section 06 — Skills
+
+Your current six-card grid is ideal for grouping skills by capability. Use these six categories:
+
+01\. Web Development
+
+Building responsive web interfaces and applications using HTML, CSS, JavaScript, React, Tailwind CSS, Node.js, and EJS.
+
+02\. AI & Machine Learning
+
+Exploring Python-based workflows, computer vision, pose estimation, embeddings, and retrieval-augmented generation.
+
+03\. Backend & Cloud
+
+Working with APIs, FastAPI, Node.js, MongoDB, Redis, Celery, Azure Blob Storage, and AWS fundamentals.
+
+04\. Creative Production
+
+Video editing, motion graphics, visual storytelling, and image editing using tools such as Premiere Pro, After Effects, DaVinci Resolve, and Photoshop.
+
+05\. UI & Interaction
+
+Exploring Figma, visual hierarchy, responsive layouts, interaction design, and GSAP-powered animation.
+
+06\. Collaboration & Execution
+
+Team coordination, event organization, technical communication, problem-solving, and learning through projects and community contributions.
+
+Only list technologies you can discuss confidently in an interview. For tools you have only explored, use words such as exploring or familiar with rather than implying professional mastery.
+
+## Section 07 — Certifications, achievements and community
+
+Rename this section from “Certifications & Achievements” to “Milestones & Community”. This allows it to showcase genuine involvement without implying that every activity is a certification or award.
+
+### 01
+
+Winter of Code 5.0
+
+Open source
+
+Selected to participate in an open-source contribution program; worked on issues and pull requests to gain experience with collaborative development and Git workflows.
+
+### 02
+
+Build with AI Bootcamp
+
+Google Developers community
+
+Participated in a bootcamp focused on building with AI technologies.
+
+### 03
+
+HackJKLU
+
+Student technology community
+
+Contributed to the creative and communication side of a student hackathon, connecting technology, event execution, and content.
+
+### 04
+
+Technical Community & Events
+
+Hackathons and event coordination
+
+Participated in hackathon initiatives and technical events, building experience in teamwork, coordination, and hands-on problem-solving.
+
+Add official certifications, competition placements, and verified awards when you have them. Don't copy the template's fictional Awwwards, CSS Design Awards, or other credentials.
+
+## Section 08 — Résumé and education
+
+EDUCATION
+
+# B.Tech in Computer Science & Engineering
+
+JK Lakshmipat University · Jaipur, India
+
+Expected graduation: 2028, subject to your official academic record.
+
+## A little more context.
+
+Currently exploring full-stack development, cloud computing, computer networks, and AI-related projects alongside my undergraduate coursework.
+
+Résumé / CV
+
+Education, technical skills, projects, internship and leadership experience in one place.
+
+Button label: Download Résumé (PDF)
+
+Link the button to your actual PDF. The current HTML uses placeholder `href="#"` values, so the download will not work until you replace them.
+
+## Section 09 — Contact
+
+HAVE AN IDEA?
+
+# Let's build something
+
+# worth exploring.
+
+I'm open to meaningful collaborations, internships, creative projects, and opportunities to build useful things with thoughtful people.
+
+modaniaditya06\@gmail.com ↗
+
+Also find me on LinkedIn and GitHub.
+
+Use your real LinkedIn and GitHub URLs in the HTML. Your email is grounded in your previously provided profile details; check that you still want it public before publishing it.
+
+## Section 10 — Footer
+
+## Aditya Modani
+
+Developer, problem-solver, and creative at heart. Building skills, exploring ideas, and turning experiments into things that work.
+
+Navigate
+
+About · Work · Skills · Experience · Achievements · Résumé · Contact
+
+Elsewhere
+
+GitHub · LinkedIn · YouTube
+
+© 2026 Aditya Modani · Made with curiosity and code.
+
+# 2. The final content direction
+
+I recommend preserving the template's existing visual design and animation, but changing the content and navigation to match your actual identity.
+
+| Current template            | Replace with                                                              |
+| --------------------------- | ------------------------------------------------------------------------- |
+| Elias Voss — Designer       | Aditya Modani — Developer & Creative Technologist                         |
+| Fictional client projects   | SpeakFlow, TeachNest, Cricket Motion Analysis, Beyond the Frame           |
+| Berlin design-studio career | Internship, student leadership, community, and hackathon experience       |
+| Product-design skill cards  | Development, AI/ML, backend/cloud, creative production, UI, collaboration |
+| Fictional awards            | Verified programs, contributions, and achievements                        |
+| Fictional contact details   | Your real email, LinkedIn, GitHub, and YouTube                            |
+| Fictional résumé links      | Your actual résumé PDF                                                    |
+
+One final piece of advice: don't try to make the portfolio sound like you've already mastered everything. Your strongest positioning is that you build, experiment, and connect technical work with creative thinking. Your actual projects, contributions, and demos should prove the rest.&#x20;
