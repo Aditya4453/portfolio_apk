@@ -1,0 +1,18 @@
+I am looking for some asiic and techy type effects visuals on my portfolio.
+Go through the references :
+https://vanlent.dev/#about-section
+https://sarthak-sharma-portfolio-six.vercel.app/
+
+And Redesign the portfolio accordingly with these key sections :
+Hero / Landing section
+About Me
+Skills
+Projects showcase
+CV / Resume downloads
+Education & Experience
+Certifications & Achievements
+Contact form
+
+Maintain the smoothnes between animations, transitions.
+
+

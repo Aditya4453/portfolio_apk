@@ -1,3 +1,5 @@
+const path = require('path');
+const fs = require('fs');
 const { generatePdfResume } = require('../utils/generatePdfResume');
 const { generateDocxResume } = require('../utils/generateDocxResume');
 const portfolioData = require('../data/portfolioData');
@@ -7,6 +9,18 @@ const portfolioData = require('../data/portfolioData');
 // @access Public
 const downloadPdf = async (req, res) => {
   try {
+    const candidatePaths = [
+      path.resolve(__dirname, '../public/AM_Resume_Sep.pdf'),
+      path.resolve(__dirname, '../../client/public/AM_Resume_Sep.pdf'),
+      path.resolve(__dirname, '../../client/dist/AM_Resume_Sep.pdf'),
+    ];
+
+    for (const filePath of candidatePaths) {
+      if (fs.existsSync(filePath)) {
+        return res.download(filePath, 'Aditya_Modani_Resume.pdf');
+      }
+    }
+
     const pdfBuffer = await generatePdfResume();
 
     res.setHeader('Content-Type', 'application/pdf');
@@ -28,6 +42,18 @@ const downloadPdf = async (req, res) => {
 // @access Public
 const downloadDocx = async (req, res) => {
   try {
+    const candidatePaths = [
+      path.resolve(__dirname, '../public/AM_Resume_Sep.docx'),
+      path.resolve(__dirname, '../../client/public/AM_Resume_Sep.docx'),
+      path.resolve(__dirname, '../../client/dist/AM_Resume_Sep.docx'),
+    ];
+
+    for (const filePath of candidatePaths) {
+      if (fs.existsSync(filePath)) {
+        return res.download(filePath, 'Aditya_Modani_Resume.docx');
+      }
+    }
+
     const docxBuffer = await generateDocxResume();
 
     res.setHeader(

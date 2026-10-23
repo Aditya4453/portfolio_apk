@@ -32,6 +32,10 @@ import React, {
   useCallback,
 } from 'react';
 import gsap from 'gsap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import portraitSrc from './hero/portrait.png';
+import bgSrc from './hero/background_landing.png';
 import './Hero.css';
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -263,38 +267,26 @@ function Spark({ style, className = '' }) {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   SOCIAL PLATES  (inline SVG icons on CSS craft plates)
+   SOCIAL PLATES  (Font Awesome brand icons on CSS craft plates)
 ───────────────────────────────────────────────────────────────────────── */
 const SOCIAL = [
   {
     label: 'Aditya on GitHub',
     href: 'https://github.com/Aditya4453',
     rot: -4,
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-        <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
-      </svg>
-    ),
+    icon: <FontAwesomeIcon icon={faGithub} style={{ width: 20, height: 20 }} />,
   },
   {
     label: 'Aditya on LinkedIn',
     href: 'https://linkedin.com/in/aditya-modani',
     rot: 3,
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-      </svg>
-    ),
+    icon: <FontAwesomeIcon icon={faLinkedin} style={{ width: 20, height: 20, color: '#0A66C2' }} />,
   },
   {
     label: 'Aditya on X',
     href: 'https://x.com',
     rot: -2,
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L2.252 2.25h6.924l4.254 5.622 5.814-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
-      </svg>
-    ),
+    icon: <FontAwesomeIcon icon={faXTwitter} style={{ width: 18, height: 18 }} />,
   },
 ];
 
@@ -430,35 +422,8 @@ function usePixelMosaic(canvasRef, portraitRef) {
       }
 
       const t  = timeRef.current;
-      const bs = stateRef.current;
-      for (let i = 0; i < bs.length; i++) {
-        const b = bs[i];
-        let dx = 0, dy = 0;
-
-        if (!reducedMotion && !hiddenRef.current && b.drifts) {
-          dx = Math.sin(t * b.driftFreq + b.driftPh) * b.driftAmp;
-          dy = Math.cos(t * b.driftFreq * 0.65 + b.driftPh) * b.driftAmp;
-        }
-
-        /* Glitch row slice */
-        if (!reducedMotion && b.isGlitch) {
-          b.glitchTimer--;
-          if (b.glitchTimer <= 0) {
-            if (b.glitchActive <= 0) {
-              b.glitchActive = 3 + Math.floor(Math.random() * 5);
-              b.glitchTimer  = 180 + Math.random() * 280;
-            }
-          }
-          if (b.glitchActive > 0) {
-            dx += b.cw;
-            b.glitchActive--;
-          }
-        }
-
-        ctx.globalAlpha = b.baseOpacity;
-        ctx.fillStyle   = b.color;
-        ctx.fillRect(b.x + dx, b.y + dy, b.w, b.h);
-      }
+      // Coloured mosaic blocks removed — grid lines only.
+      // (block state is still built so face-zone logic stays intact for future use)
 
       ctx.globalAlpha = 1;
       if (!hiddenRef.current && !reducedMotion) timeRef.current += 0.016;
@@ -637,6 +602,14 @@ const Hero = forwardRef(function Hero({ profile }, ref) {
       {/* ── Layer 1: BG field + vignette ──────────────────────────────── */}
       <div className="h5-bg" aria-hidden="true" />
 
+      {/* ── Layer 1b: Background image ────────────────────────────────── */}
+      <img
+        src={bgSrc}
+        alt=""
+        aria-hidden="true"
+        className="h5-bg-img"
+      />
+
       {/* ── Layer 2: Giant ADITYA wordmark ────────────────────────────── */}
       <div
         ref={wordmarkRef}
@@ -647,10 +620,8 @@ const Hero = forwardRef(function Hero({ profile }, ref) {
         ADITYA
       </div>
 
-      {/* ── Layer 3: Portrait silhouette ──────────────────────────────── */}
-      <div ref={portraitWrap} className="h5-portrait-wrap" aria-hidden="true">
-        <PortraitSilhouette />
-      </div>
+      {/* ── Layer 3: Portrait ─────────────────────────────────────────── */}
+      
 
       {/* ── Layer 4: Gradient veil ─────────────────────────────────────── */}
       <div ref={veilRef} className="h5-veil" aria-hidden="true" />
@@ -663,7 +634,6 @@ const Hero = forwardRef(function Hero({ profile }, ref) {
       />
 
       {/* ── Layer 7: Collage elements ─────────────────────────────────── */}
-      <TapeStrip style={{ left: '4%', top: '64%', zIndex: 7 }} text="MAKE SIGNAL. NOT NOISE." rot={-3} />
 
       {/* Second slogan strip — off-white, no background */}
       <div
@@ -685,7 +655,6 @@ const Hero = forwardRef(function Hero({ profile }, ref) {
         ENCODED, NOT ERASED.
       </div>
 
-      <PaperTear style={{ left: '68%', top: '60%', width: 140, height: 88, transform: 'rotate(3deg)' }} />
       <HalftoneOrb className="h5-mob-hide" style={{ right: '8%', top: '8%', width: 120, height: 120, transform: 'rotate(-8deg)' }} />
       <PixelCluster style={{ left: '1%', top: '22%', width: 88, height: 88, transform: 'rotate(6deg)', opacity: 0.8 }} accent={false} />
       <PixelCluster className="h5-mob-hide" style={{ right: '2%', top: '42%', width: 72, height: 72, transform: 'rotate(-5deg)', opacity: 0.75 }} accent={true} />
