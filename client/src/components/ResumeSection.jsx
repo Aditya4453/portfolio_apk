@@ -11,6 +11,7 @@ export default function ResumeSection() {
 
   /**
    * Fetches the resume from Express as a blob and triggers a browser download.
+   * If Express API is unreachable, falls back to the static resume file in public/.
    * @param {'pdf'|'docx'} format
    */
   const handleDownload = async (format) => {
@@ -34,7 +35,22 @@ export default function ResumeSection() {
       setter('done');
       setTimeout(() => setter('idle'), 4000);
     } catch (err) {
-      console.error(`[Resume ${format.toUpperCase()} Error]`, err);
+      const ext = format === 'pdf' ? 'pdf' : 'docx';
+      const staticFile = format === 'pdf' ? '/AM_Resume_Sep.pdf' : '/AM_Resume_Sep.docx';
+      try {
+        const link = document.createElement('a');
+        link.href = staticFile;
+        link.download = `Aditya_Modani_Resume.${ext}`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        setter('done');
+        setTimeout(() => setter('idle'), 4000);
+        return;
+      } catch (staticErr) {
+        console.error(`[Resume Static ${format.toUpperCase()} Download Error]`, staticErr);
+      }
       setter('error');
       setTimeout(() => setter('idle'), 4000);
     }

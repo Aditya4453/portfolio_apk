@@ -16,12 +16,12 @@ import Footer from './components/Footer';
 import { fallbackPortfolioData } from './data/fallbackData';
 
 gsap.registerPlugin(ScrollTrigger);
-
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [loadPercent, setLoadPercent] = useState(0);
   const [portfolio, setPortfolio] = useState(fallbackPortfolioData);
   const hasInitializedAnimations = useRef(false);
+  const heroRef = useRef(null); // ref to Hero's startEntrance imperative handle
 
   // Fetch portfolio data from MERN Express API
   useEffect(() => {
@@ -95,12 +95,10 @@ export default function App() {
 
   // Staggered Hero Entrance and GSAP Motion System
   const playHeroEntrance = () => {
-    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    heroTl
-      .to('nav.site-nav', { opacity: 1, duration: 0.8 }, 0)
-      // Portrait photo fades in
-      .to('#heroPhoto', { opacity: 1, duration: 1.4, ease: 'power2.out' }, 0.35);
+    // Nav fades in
+    gsap.to('nav.site-nav', { opacity: 1, duration: 0.8, ease: 'power3.out' });
+    // Hero entrance is orchestrated inside Hero.jsx via imperative ref
+    heroRef.current?.startEntrance();
 
     initParticles();
     initMagnetic();
@@ -466,7 +464,7 @@ export default function App() {
         <Navbar />
 
         <main>
-          <Hero profile={portfolio.profile} />
+          <Hero ref={heroRef} profile={portfolio.profile} />
           {/* <Principles /> */}
           <About profile={portfolio.profile} />
           <Skills skillsData={portfolio.skills} />

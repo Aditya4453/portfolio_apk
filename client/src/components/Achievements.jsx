@@ -25,9 +25,7 @@ export default function Achievements({ achievementsData }) {
               </span>
             </span>
           </h2>
-          <p className="milestones-header-desc" style={{ color: 'var(--muted)', marginTop: '0.6rem', fontSize: '1rem' }}>
-            Verified open-source contribution programs, technical bootcamps, and hackathon recognitions.
-          </p>
+         
         </div>
 
         <div className="achievements-list">

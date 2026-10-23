@@ -1,0 +1,564 @@
+/* ==========================================================================
+   Hero v5 — Editorial Cover × Digital-Activism Poster
+   Scoped to .h5-* — zero bleed into other sections.
+   ========================================================================== */
+
+/* ── Section shell ───────────────────────────────────────────────────────── */
+.h5-section {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  background: #070707;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  isolation: isolate;
+  /* mono font available for micro-labels */
+  --mono: "JetBrains Mono", "Space Mono", "Fira Mono", ui-monospace, monospace;
+}
+
+/* ── Layer 1: BG vignette ────────────────────────────────────────────────── */
+.h5-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 85% 75% at 50% 46%, transparent 35%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+}
+
+/* ── Layer 1b: Background image (behind wordmark, under vignette) ────────── */
+.h5-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;          /* below the vignette overlay */
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Layer 2: Giant ADITYA wordmark ─────────────────────────────────────── */
+.h5-wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  z-index: 2;
+  font-family: "Syne", system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  /* Full-bleed: crops at edges on purpose */
+  font-size: clamp(17vw, 24vw, 28vw);
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(244, 244, 240, var(--wm-opacity, 0.11));
+  -webkit-text-stroke: 1px rgba(244, 244, 240, 0.16);
+  will-change: transform;
+  /* Optional glitch — triggered by WILDNESS > 0.5 via class from JS.
+     Currently a subtle CSS-only glitch always on. */
+  animation: wm-drift 14s ease-in-out infinite alternate;
+}
+@keyframes wm-drift {
+  from { letter-spacing: -0.06em; }
+  to   { letter-spacing: -0.055em; }
+}
+
+/* ── Layer 3: Portrait ───────────────────────────────────────────────────── */
+.h5-portrait-wrap {
+  position: absolute;
+  right: clamp(3%, 12vw, 20%);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  /* Width sets the column; height grows naturally with the image */
+  width: clamp(220px, 30vw, 460px);
+  will-change: transform;
+  filter: saturate(0.82) contrast(1.05);
+}
+
+.h5-portrait-img {
+  display: block;
+  width: 100%;
+  height: auto;          /* full image, no crop */
+  border-radius: 4px;
+}
+
+/* CSS placeholder when image is missing (onerror fallback) */
+.h5-portrait--fallback {
+  background: linear-gradient(160deg, #2a2724 0%, #1d2124 100%);
+  border-radius: 4px;
+  aspect-ratio: 360 / 520;
+}
+
+/* ── Layer 4: Gradient veil ──────────────────────────────────────────────── */
+.h5-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    /* Left — text legibility over portrait */
+    linear-gradient(to right,
+      rgba(7,7,7,0.95) 0%,
+      rgba(7,7,7,0.78) 36%,
+      rgba(7,7,7,0.14) 60%,
+      transparent 100%),
+    /* Bottom */
+    linear-gradient(to top,
+      rgba(7,7,7,0.90) 0%,
+      rgba(7,7,7,0.28) 20%,
+      transparent 44%);
+}
+
+/* ── Layers 5+6: Canvas ─────────────────────────────────────────────────── */
+.h5-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+  /* Blocks blend over the portrait */
+}
+
+/* ── Layer 7: Collage base ───────────────────────────────────────────────── */
+.h5-collage {
+  position: absolute;
+  will-change: transform, opacity;
+}
+/* Mobile-hide class */
+@media (max-width: 640px) {
+  .h5-mob-hide { display: none !important; }
+}
+
+/* ── Layer 8: Editorial furniture ───────────────────────────────────────── */
+
+/* Crop marks */
+.h5-crop {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 8;
+  opacity: 0.28;
+  pointer-events: none;
+}
+.h5-crop::before,
+.h5-crop::after {
+  content: '';
+  position: absolute;
+  background: rgba(244, 244, 240, 0.8);
+}
+.h5-crop::before { width: 100%; height: 1px; top: 0; left: 0; }
+.h5-crop::after  { width: 1px; height: 100%; top: 0; left: 0; }
+
+.h5-crop--tl { top: 5.5rem; left: 1.6rem; }
+.h5-crop--tr { top: 5.5rem; right: 1.6rem; transform: scaleX(-1); }
+.h5-crop--bl { bottom: 3.5rem; left: 1.6rem; transform: scaleY(-1); }
+.h5-crop--br { bottom: 3.5rem; right: 1.6rem; transform: scale(-1); }
+
+/* Registration mark */
+.h5-reg {
+  position: absolute;
+  right: clamp(2%, 10vw, 16%);
+  top: 13%;
+  z-index: 8;
+  font-size: 1rem;
+  color: rgba(244, 244, 240, 0.22);
+  font-family: var(--mono);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Rule lines */
+.h5-rule {
+  position: absolute;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0.16;
+}
+.h5-rule--h {
+  bottom: 6.5%;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+.h5-rule--v {
+  left: clamp(3rem, 5.5vw, 7rem);
+  top: 5.5rem;
+  bottom: 3.5rem;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+.h5-coord {
+  position: absolute;
+  right: 1.8rem;
+  bottom: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 240, 0.38);
+  white-space: nowrap;
+  opacity: 1;   /* parent rule already dim */
+}
+
+/* Folio */
+.h5-folio {
+  position: absolute;
+  top: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 240, 0.25);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Micro-labels */
+.h5-micro {
+  position: absolute;
+  z-index: 8;
+  font-family: var(--mono);
+  font-size: clamp(0.52rem, 0.65vw, 0.64rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 240, 0.35);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 0;   /* GSAP animates in */
+}
+
+/* ── Layer 9: UI ─────────────────────────────────────────────────────────── */
+.h5-ui {
+  position: relative;
+  z-index: 9;
+  width: min(1280px, 92vw);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: clamp(0px, 2vw, 1.5rem);
+  /* Slight upward nudge */
+  margin-top: -3vh;
+}
+
+/* Index marker */
+.h5-index {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: clamp(0.8rem, 1.8vh, 1.4rem);
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+.h5-index-num {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #d4ff00;
+}
+.h5-index-div {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  vertical-align: middle;
+}
+.h5-index-lbl {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 240, 0.45);
+}
+
+/* Label kicker */
+.h5-kicker {
+  font-family: var(--mono);
+  font-size: clamp(0.6rem, 0.82vw, 0.76rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4ff00;
+  margin-bottom: clamp(0.9rem, 2vh, 1.6rem);
+  opacity: 0;   /* GSAP */
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.h5-kicker::before {
+  content: '01 /';
+  color: rgba(244, 244, 240, 0.25);
+}
+
+/* H1 */
+.h5-h1 {
+  font-family: "Syne", system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin-bottom: clamp(1.1rem, 2.4vh, 2rem);
+  /* No opacity here — individual lines animate */
+}
+.h5-h1-line {
+  display: block;
+  overflow: hidden;
+  line-height: 0.96;
+}
+.h5-h1-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+.h5-h1-line:first-child > span {
+  font-size: clamp(5.5rem, 13.5vw, 12rem);
+  color: #f4f4f0;
+}
+.h5-h1-serif {
+  text-transform: none;
+}
+.h5-h1-serif > span {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  letter-spacing: -0.02em;
+  color: #d4ff00;
+}
+
+/* Statement */
+.h5-statement {
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  font-size: clamp(0.94rem, 1.25vw, 1.12rem);
+  line-height: 1.62;
+  color: rgba(244, 244, 240, 0.6);
+  max-width: 44ch;
+  margin-bottom: clamp(1.8rem, 3.4vh, 2.8rem);
+  opacity: 0;   /* GSAP */
+}
+.h5-br { display: inline; }
+@media (max-width: 640px) { .h5-br { display: none; } }
+
+/* CTA row */
+.h5-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.8rem, 3.5vh, 3rem);
+}
+.h5-cta-wrap {
+  display: inline-flex;
+  will-change: transform;
+}
+.h5-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: "Syne", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.05vw, 0.94rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.75rem;
+  background: #d4ff00;
+  color: #070707;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  will-change: transform;
+  opacity: 0;   /* GSAP */
+  outline: none;
+}
+.h5-cta:focus-visible {
+  outline: 2px solid #d4ff00;
+  outline-offset: 4px;
+}
+.h5-cta:hover {
+  background: #f4f4f0;
+  box-shadow: 0 10px 30px rgba(212, 255, 0, 0.28);
+}
+.h5-cta-arrow {
+  font-size: 1.1em;
+  display: inline-block;
+  transition: transform 0.28s ease;
+}
+.h5-cta:hover .h5-cta-arrow {
+  transform: translateX(5px);
+}
+.h5-meta {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 240, 0.3);
+  opacity: 0;   /* GSAP */
+}
+
+/* Social plates */
+.h5-social {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0;   /* GSAP */
+}
+.h5-social-plate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  /* Craft plate: bone paper with grain, torn clip, hard shadow */
+  background: #cfcabd;
+  color: #070707;
+  clip-path: polygon(6% 0%, 100% 2%, 98% 92%, 94% 100%, 0% 96%);
+  transform: rotate(var(--plate-rot, 0deg));
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.55);
+  text-decoration: none;
+  transition:
+    transform 0.3s cubic-bezier(0.16,1,0.3,1),
+    box-shadow 0.3s ease,
+    background 0.25s ease;
+  outline: none;
+}
+.h5-social-plate:hover {
+  transform: rotate(0deg) translateY(-3px) !important;
+  background: #d4ff00;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.7);
+}
+.h5-social-plate:focus-visible {
+  outline: 2px solid #d4ff00;
+  outline-offset: 3px;
+  transform: rotate(0deg) !important;
+}
+
+/* Index marker — vertical right edge */
+.h5-index-marker {
+  position: absolute;
+  right: clamp(1.4rem, 2.5vw, 3rem);
+  bottom: 50%;
+  transform: translateY(50%) rotate(90deg);
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.42;
+}
+
+/* Bottom ticker */
+.h5-ticker {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  height: 26px;
+  z-index: 9;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.042);
+  opacity: 0;   /* GSAP */
+  pointer-events: none;
+  user-select: none;
+}
+.h5-ticker-inner {
+  display: inline-flex;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.16);
+  line-height: 26px;
+  /* Duplicate the string so loop is seamless: CSS drives the scroll */
+  animation: h5-ticker-scroll 42s linear infinite;
+}
+@keyframes h5-ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Screen-reader only */
+.h5-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Collage piece explicit classes ─────────────────────────────────────── */
+/* These are set via the className on the wrapper divs in JSX */
+/* TapeStrip, PaperTear, HalftoneOrb, PixelCluster, GridFragment, Spark
+   all live in absolute-positioned divs/SVGs that carry .h5-collage for GSAP */
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .h5-portrait-wrap {
+    right: 1%;
+    width: clamp(180px, 28vw, 360px);
+    opacity: 0.88;
+  }
+}
+
+@media (max-width: 640px) {
+  .h5-section {
+    align-items: flex-end;
+  }
+  /* Portrait becomes background layer */
+  .h5-portrait-wrap {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 82vw;
+    opacity: 0.38;
+    z-index: 3;
+  }
+  /* UI fills lower two-thirds */
+  .h5-ui {
+    padding: 0 5vw 6rem;
+    margin-top: 0;
+    padding-left: 5vw;
+    width: 100%;
+  }
+  .h5-wordmark {
+    font-size: clamp(18vw, 26vw, 34vw);
+  }
+  .h5-h1-line:first-child > span {
+    font-size: clamp(4rem, 19vw, 7rem);
+  }
+  .h5-h1-serif > span {
+    font-size: clamp(2.2rem, 11vw, 4rem);
+  }
+  .h5-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+  .h5-ticker { display: none; }
+  .h5-crop--tl, .h5-crop--tr { top: 4.2rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .h5-wordmark,
+  .h5-ticker-inner {
+    animation: none !important;
+  }
+  .h5-cta-arrow { transition: none !important; }
+}
