@@ -32,6 +32,13 @@ export default function About({ profile }) {
           </p>
 
           <p className="about-text">
+            Beyond code, I work in video and motion: editing short films, reels and event recaps in{' '}
+            <strong style={{ color: 'var(--fg)' }}>DaVinci Resolve</strong>, compositing and motion graphics in{' '}
+            <strong style={{ color: 'var(--fg)' }}>After Effects</strong>, and assembling timelines in{' '}
+            <strong style={{ color: 'var(--fg)' }}>Premiere Pro</strong>. That side of the craft directly informs how I think about animation, pacing, and visual storytelling inside the browser.
+          </p>
+
+          <p className="about-text">
             I'm constantly building, experimenting in hackathons and open-source programs, and deliberately expanding the engineering craft that will shape my professional journey.
           </p>
 

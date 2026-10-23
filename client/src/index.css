@@ -262,159 +262,26 @@ nav.site-nav {
 }
 
 /* ==========================================================================
-   HERO SECTION — v3 (reference-faithful big-name + portrait)
+   HERO SECTION — v4 Editorial Cover × Activism Poster
+   All hero styles live in Hero.css (scoped to .hero-v4).
+   Only shared GSAP targets remain here.
    ========================================================================== */
 
-/* ── Section shell ────────────────────────────────────────────────────────── */
-.hero-main {
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #000;
+/* ── Screen-reader only utility ─────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
   overflow: hidden;
-}
-
-/* ── Cursive signature at top centre ─────────────────────────────────────── */
-.hero-sig {
-  position: absolute;
-  top: 5rem;    /* sits comfortably below the fixed navbar */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  color: #fff;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* ── Centred name + portrait stack ───────────────────────────────────────── */
-.hero-center {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Small upward nudge so tagline has breathing room */
-  margin-top: -2vh;
-}
-
-/* Each name line */
-.hero-name-row {
-  display: block;
-  text-align: center;
-  line-height: 0.8;
-  pointer-events: none;
-}
-
-/* BlurText outer wrapper */
-.hero-blur-wrap {
-  display: inline-flex;
-  flex-wrap: nowrap;
-}
-
-/* Individual animated character */
-.hero-blur-char {
-  display: inline-block;
-}
-
-/* The giant name text */
-.hero-name {
-  font-family: var(--font-display);
-  font-size: clamp(5.5rem, 18vw, 15rem);
-  font-weight: 800;
-  letter-spacing: -0.055em;
-  text-transform: uppercase;
-  color: var(--accent);           /* #d4ff00 — yellow-green */
+  clip: rect(0,0,0,0);
   white-space: nowrap;
-  user-select: none;
-  cursor: default;
+  border: 0;
 }
 
-/* ── Portrait — absolutely centred over the name stack ───────────────────── */
-.hero-portrait-abs {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  /* GSAP animates opacity on #heroPhoto */
+/* GSAP targets used in App.jsx entrance */
+.hero-bottom {
   opacity: 0;
-}
-
-.hero-portrait-abs img {
-  display: block;
-  /* Pill shape, same proportion as reference */
-  width: clamp(65px, 9vw, 130px);
-  height: clamp(110px, 15vw, 218px);
-  border-radius: 9999px;
-  object-fit: cover;
-  object-position: top center;
-  /* No border/glow — clean like the reference */
-  box-shadow: 0 8px 40px rgba(0,0,0,0.65);
-  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
-  cursor: pointer;
-}
-
-.hero-portrait-abs img:hover {
-  transform: scale(1.08);
-}
-
-/* ── Tagline below the name block ─────────────────────────────────────────── */
-.hero-tagline-row {
-  position: absolute;
-  /* Sit comfortably below centre — matches reference */
-  bottom: clamp(4.5rem, 9vh, 7rem);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.hero-tagline {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(0.9rem, 1.5vw, 1.25rem);
-  color: rgba(140,140,134,0.85);
-  letter-spacing: 0.01em;
-  transition: color 0.3s ease;
-  user-select: none;
-}
-
-.hero-tagline:hover {
-  color: var(--fg);
-}
-
-/* ── Scroll chevron ──────────────────────────────────────────────────────── */
-.hero-chevron {
-  position: absolute;
-  bottom: 1.4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  color: rgba(140,140,134,0.55);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  transition: color 0.25s ease;
-}
-
-.hero-chevron:hover {
-  color: var(--accent);
-}
-
-.hero-chevron svg {
-  animation: chevron-bounce 2.2s ease-in-out infinite;
-}
-
-@keyframes chevron-bounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(6px); }
+  transform: translateY(30px);
 }
 
 /* ── Shared button styles (used by other sections too) ───────────────────── */
@@ -742,6 +609,17 @@ nav.site-nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+}
+
+/* ── 3-column variant ─────────────────────────────────────────────────── */
+.sk-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 980px) {
+  .sk-grid--three {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Individual skill box ─────────────────────────────────────────────── */
@@ -1531,12 +1409,17 @@ nav.site-nav {
   will-change: transform;
 }
 
-.cv-download-btn:hover {
+.cv-download-btn:hover:not(:disabled) {
   border-color: var(--accent);
   background: var(--accent-dim);
   color: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cv-download-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .cv-download-btn .meta {
@@ -1545,23 +1428,41 @@ nav.site-nav {
   color: var(--muted);
 }
 
-.cv-download-btn:hover .meta {
+.cv-download-btn:hover:not(:disabled) .meta {
   color: var(--accent);
 }
 
-.cv-success {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-top: 1.2rem;
-  padding: 0.55rem 1rem;
-  border-radius: 8px;
-  background: rgba(212, 255, 0, 0.08);
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 0.84rem;
-  font-weight: 600;
-  animation: cv-fadein 0.3s ease;
+/* Success state */
+.cv-download-btn--done {
+  border-color: rgba(212, 255, 0, 0.55) !important;
+  background: rgba(212, 255, 0, 0.06) !important;
+  color: var(--accent) !important;
+}
+
+/* Error state */
+.cv-download-btn--error {
+  border-color: rgba(248, 113, 113, 0.5) !important;
+  background: rgba(248, 113, 113, 0.06) !important;
+  color: #f87171 !important;
+}
+
+/* Spin animation for loader icon */
+.cv-spin {
+  animation: cv-spin 0.75s linear infinite;
+}
+
+@keyframes cv-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Subtitle below headline */
+.cv-subtext {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  line-height: 1.5;
+  max-width: 36ch;
 }
 
 @keyframes cv-fadein {

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 const Logo = ({ name, size = 32 }) => {
   const s = size;
   switch (name) {
+    /* ── Frontend ──────────────────────────────────────────────── */
     case 'React':
       return (
         <svg viewBox="0 0 24 24" width={s} height={s} fill="none">
@@ -18,13 +19,6 @@ const Logo = ({ name, size = 32 }) => {
         <svg viewBox="0 0 24 24" width={s} height={s}>
           <rect width="24" height="24" rx="3" fill="#F7DF1E"/>
           <text x="3.5" y="19" fontSize="13" fontWeight="bold" fontFamily="monospace" fill="#000">JS</text>
-        </svg>
-      );
-    case 'TypeScript':
-      return (
-        <svg viewBox="0 0 24 24" width={s} height={s}>
-          <rect width="24" height="24" rx="3" fill="#3178C6"/>
-          <text x="2.5" y="19" fontSize="12.5" fontWeight="bold" fontFamily="monospace" fill="#fff">TS</text>
         </svg>
       );
     case 'HTML/CSS':
@@ -57,6 +51,8 @@ const Logo = ({ name, size = 32 }) => {
           <path d="M6.5 8h2v6.5L16 8h2v8h-2V9.5L9 17.5H6.5V8z" fill="#fff"/>
         </svg>
       );
+
+    /* ── Backend ──────────────────────────────────────────────── */
     case 'Node.js':
       return (
         <svg viewBox="0 0 24 24" width={s} height={s} fill="#339933">
@@ -105,6 +101,8 @@ const Logo = ({ name, size = 32 }) => {
           <path d="M3 20l5-10 3 5-3 5H3z" fill="#0078D4" opacity="0.7"/>
         </svg>
       );
+
+    /* ── Tools ──────────────────────────────────────────────────── */
     case 'Git':
       return (
         <svg viewBox="0 0 24 24" width={s} height={s} fill="#F05032">
@@ -162,30 +160,11 @@ const Logo = ({ name, size = 32 }) => {
           <circle cx="12" cy="16" r="4" fill="none" stroke="#E74C3C" strokeWidth="1.5"/>
         </svg>
       );
-    case 'MediaPipe':
-      return (
-        <svg viewBox="0 0 24 24" width={s} height={s}>
-          <rect width="24" height="24" rx="3" fill="#00897B"/>
-          <text x="2" y="16" fontSize="8" fontWeight="700" fontFamily="monospace" fill="#fff">MP</text>
-        </svg>
-      );
     case 'LangChain':
       return (
         <svg viewBox="0 0 24 24" width={s} height={s}>
           <rect width="24" height="24" rx="3" fill="#1a1a1a"/>
           <path d="M6 12h4M14 12h4M10 8v8M14 8v8" stroke="#d4ff00" strokeWidth="2" strokeLinecap="round"/>
-        </svg>
-      );
-    case 'Gemini':
-      return (
-        <svg viewBox="0 0 24 24" width={s} height={s} fill="none">
-          <path d="M12 2C6.5 6 2 8 2 12s4.5 6 10 10c5.5-4 10-6 10-10S17.5 6 12 2z" fill="url(#gm2)"/>
-          <defs>
-            <linearGradient id="gm2" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#4285F4"/>
-              <stop offset="1" stopColor="#9B72CB"/>
-            </linearGradient>
-          </defs>
         </svg>
       );
     case 'YOLO':
@@ -195,13 +174,35 @@ const Logo = ({ name, size = 32 }) => {
           <text x="2" y="17" fontSize="9.5" fontWeight="900" fontFamily="monospace" fill="#fff">YOLO</text>
         </svg>
       );
-    case 'ChromaDB':
+
+    /* ── Creative / Video editing ─────────────────────────────── */
+    case 'DaVinci Resolve':
       return (
-        <svg viewBox="0 0 24 24" width={s} height={s}>
-          <rect width="24" height="24" rx="3" fill="#FF4E7B"/>
-          <text x="2" y="16" fontSize="7.5" fontWeight="900" fontFamily="monospace" fill="#fff">Chroma</text>
+        <svg viewBox="0 0 24 24" width={s} height={s} fill="none">
+          <rect width="24" height="24" rx="4" fill="#141414"/>
+          {/* Outer ring */}
+          <circle cx="12" cy="12" r="8.5" stroke="#E8272A" strokeWidth="1.5" fill="none"/>
+          {/* Inner ring */}
+          <circle cx="12" cy="12" r="5" stroke="#E8272A" strokeWidth="1" fill="none"/>
+          {/* Centre dot */}
+          <circle cx="12" cy="12" r="2" fill="#E8272A"/>
         </svg>
       );
+    case 'After Effects':
+      return (
+        <svg viewBox="0 0 24 24" width={s} height={s} fill="none">
+          <rect width="24" height="24" rx="4" fill="#1A0533"/>
+          <text x="3" y="14" fontSize="10" fontWeight="900" fontFamily="serif" fill="#9999FF">Ae</text>
+        </svg>
+      );
+    case 'Premiere Pro':
+      return (
+        <svg viewBox="0 0 24 24" width={s} height={s} fill="none">
+          <rect width="24" height="24" rx="4" fill="#00005B"/>
+          <text x="2.5" y="14" fontSize="10" fontWeight="900" fontFamily="serif" fill="#9999FF">Pr</text>
+        </svg>
+      );
+
     default:
       return (
         <svg viewBox="0 0 24 24" width={s} height={s}>
@@ -214,12 +215,12 @@ const Logo = ({ name, size = 32 }) => {
   }
 };
 
-/* ── Skill category groups ─────────────────────────────────────────────── */
+/* ── Skill category groups — 3 boxes ──────────────────────────────────── */
 const skillBoxes = [
   {
     id: 'frontend',
     label: 'Frontend',
-    accent: '#61DAFB',         // cyan
+    accent: '#61DAFB',
     accentBg: 'rgba(97,218,251,0.08)',
     cornerColor: 'rgba(97,218,251,0.5)',
     items: [
@@ -233,8 +234,8 @@ const skillBoxes = [
   },
   {
     id: 'backend',
-    label: 'Backend & DB',
-    accent: '#47A248',         // mongo green
+    label: 'Backend',
+    accent: '#47A248',
     accentBg: 'rgba(71,162,72,0.08)',
     cornerColor: 'rgba(71,162,72,0.5)',
     items: [
@@ -249,33 +250,27 @@ const skillBoxes = [
   },
   {
     id: 'tools',
-    label: 'Tools & DevOps',
-    accent: '#d4ff00',         // accent
+    label: 'Tools & Creative',
+    accent: '#d4ff00',
     accentBg: 'rgba(212,255,0,0.06)',
     cornerColor: 'rgba(212,255,0,0.5)',
     items: [
+      // Dev tools
       { name: 'Git',      sub: 'Expert' },
       { name: 'Figma',    sub: 'Advanced' },
       { name: 'Postman',  sub: 'Advanced' },
       { name: 'Vercel',   sub: 'Advanced' },
       { name: 'Docker',   sub: 'Intermediate' },
       { name: 'VS Code',  sub: 'Expert' },
-    ],
-  },
-  {
-    id: 'ai',
-    label: 'AI & ML',
-    accent: '#9B72CB',         // purple
-    accentBg: 'rgba(155,114,203,0.08)',
-    cornerColor: 'rgba(155,114,203,0.5)',
-    items: [
+      // AI / ML tools
       { name: 'Python',    sub: 'Advanced' },
       { name: 'OpenCV',    sub: 'Advanced' },
       { name: 'YOLO',      sub: 'Intermediate' },
-      { name: 'MediaPipe', sub: 'Intermediate' },
       { name: 'LangChain', sub: 'Intermediate' },
-      { name: 'ChromaDB',  sub: 'Intermediate' },
-      { name: 'Gemini',    sub: 'Intermediate' },
+      // Video / creative editing
+      { name: 'DaVinci Resolve', sub: 'Intermediate' },
+      { name: 'After Effects',   sub: 'Intermediate' },
+      { name: 'Premiere Pro',    sub: 'Intermediate' },
     ],
   },
 ];
@@ -313,11 +308,11 @@ export default function Skills({ skillsData }) {
           </h2>
         </div>
 
-        {/* 2 × 2 box grid */}
-        <div className="sk-grid">
+        {/* 3-column box grid — override the 2×2 default to 3×1 */}
+        <div className="sk-grid sk-grid--three">
           {skillBoxes.map((group) => (
             <div
-              className="sk-box bubble"   /* keep .bubble so GSAP targets it */
+              className="sk-box bubble"
               key={group.id}
               style={{
                 '--accent': group.accent,
@@ -325,16 +320,13 @@ export default function Skills({ skillsData }) {
                 '--corner': group.cornerColor,
               }}
             >
-              {/* ── Corner & mid-point handles (reference aesthetic) ── */}
               <CornerHandles color={group.cornerColor} />
 
-              {/* ── Category label badge ────────────────────────────── */}
               <div className="sk-badge">
                 <span className="sk-badge-dot" style={{ background: group.accent }} />
                 {group.label}
               </div>
 
-              {/* ── Skill chips ─────────────────────────────────────── */}
               <div className="sk-chips">
                 {group.items.map((item) => {
                   const key = `${group.id}-${item.name}`;
@@ -349,7 +341,6 @@ export default function Skills({ skillsData }) {
                         <Logo name={item.name} size={22} />
                       </span>
                       <span className="sk-chip-name">{item.name}</span>
-                      
                     </div>
                   );
                 })}

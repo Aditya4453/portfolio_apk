@@ -8,7 +8,7 @@ export const fallbackPortfolioData = {
     location: 'Jaipur, India',
     status: 'B.Tech CSE (3rd Year) · Student & Builder',
     email: 'modaniaditya06@gmail.com',
-    github: 'https://github.com/adityamodani',
+    github: 'https://github.com/Aditya4453',
     linkedin: 'https://linkedin.com/in/aditya-modani',
     youtube: 'https://youtube.com',
   },
@@ -66,33 +66,33 @@ export const fallbackPortfolioData = {
 
   skills: [
     // Frontend
-    { name: 'React', category: 'Frontend' },
+    { name: 'React',       category: 'Frontend' },
     { name: 'JavaScript (ES6+)', category: 'Frontend' },
     { name: 'HTML5 / CSS3', category: 'Frontend' },
     { name: 'Tailwind CSS', category: 'Frontend' },
-    { name: 'GSAP Motion', category: 'Frontend' },
-    { name: 'Next.js', category: 'Frontend' },
+    { name: 'GSAP Motion',  category: 'Frontend' },
+    { name: 'Next.js',      category: 'Frontend' },
 
     // Backend
-    { name: 'Node.js', category: 'Backend' },
-    { name: 'Express.js', category: 'Backend' },
-    { name: 'MongoDB & Mongoose', category: 'Backend' },
-    { name: 'FastAPI (Python)', category: 'Backend' },
+    { name: 'Node.js',              category: 'Backend' },
+    { name: 'Express.js',           category: 'Backend' },
+    { name: 'MongoDB & Mongoose',   category: 'Backend' },
+    { name: 'FastAPI (Python)',      category: 'Backend' },
     { name: 'REST APIs & JWT Auth', category: 'Backend' },
-    { name: 'Azure Blob / AWS S3', category: 'Backend' },
+    { name: 'Azure Blob / AWS S3',  category: 'Backend' },
 
-    // Tools & Technologies
-    { name: 'Git & GitHub', category: 'Tools & Technologies' },
-    { name: 'Figma', category: 'Tools & Technologies' },
-    { name: 'Postman', category: 'Tools & Technologies' },
-    { name: 'Vercel / Render', category: 'Tools & Technologies' },
-    { name: 'Docker Fundamentals', category: 'Tools & Technologies' },
-    { name: 'VS Code & DevTools', category: 'Tools & Technologies' },
-
-    // AI & ML
-    { name: 'Python', category: 'AI & ML' },
-    { name: 'Computer Vision / YOLO', category: 'AI & ML' },
-    { name: 'RAG & Vector Embeddings', category: 'AI & ML' },
+    // Tools & Creative (dev tools + AI/ML + video editing)
+    { name: 'Git & GitHub',    category: 'Tools & Creative' },
+    { name: 'Figma',           category: 'Tools & Creative' },
+    { name: 'Postman',         category: 'Tools & Creative' },
+    { name: 'Vercel / Render', category: 'Tools & Creative' },
+    { name: 'Docker',          category: 'Tools & Creative' },
+    { name: 'Python',          category: 'Tools & Creative' },
+    { name: 'Computer Vision / YOLO', category: 'Tools & Creative' },
+    { name: 'LangChain & RAG', category: 'Tools & Creative' },
+    { name: 'DaVinci Resolve', category: 'Tools & Creative' },
+    { name: 'After Effects',   category: 'Tools & Creative' },
+    { name: 'Premiere Pro',    category: 'Tools & Creative' },
   ],
 
   timeline: [
